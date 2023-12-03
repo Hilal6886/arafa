@@ -29,7 +29,7 @@ const HomeSection = () => {
             <p className="hero-text">
               Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.
             </p>
-            <a href="#" className="btn has-before">
+            <a href="/" className="btn has-before">
               <span className="span">Find courses</span>
               <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>
