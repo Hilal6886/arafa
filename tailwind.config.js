@@ -139,18 +139,7 @@ module.exports = {
       lightPrimary: "#F4F7FE",
       blueSecondary: "#4318FF",
       brandLinear: "#868CFF",
-      gray: {
-        50: "#f8f9fa",
-        100: "#edf2f7",
-        200: "#e9ecef",
-        300: "#cbd5e0",
-        400: "#a0aec0",
-        500: "#adb5bd",
-        600: "#a3aed0",
-        700: "#707eae",
-        800: "#252f40",
-        900: "#1b2559",
-      },
+     
       navy: {
         50: "#d0dcfb",
         100: "#aac0fe",

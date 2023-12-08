@@ -1044,7 +1044,7 @@
   
     .container { max-width: 720px; }
   
-    .btn { padding: 15px 30px; }
+ 
   
     :is(.course, .blog) .grid-list { grid-template-columns: 1fr 1fr; }
   

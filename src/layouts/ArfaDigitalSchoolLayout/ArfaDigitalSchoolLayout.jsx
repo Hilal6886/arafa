@@ -1,16 +1,25 @@
 // components/ArfaDigitalSchoolLayout.js
-import React from 'react';
-import Navbar from './Navbar';
-import Footer from './Footer';
+// ArfaSchoolLayout.js
+import React from "react";
+import Navbar2 from "components/Navbars/Navbar2";
+import Footer1 from "components/Footers/Footer1";
+import Arfadigitalschool from "Routs/Arfadigitalschool";
 
-const ArfaDigitalSchoolLayout = ({ children }) => {
+const ArfaDigitalSchoolLayout = () => {
   return (
-    <div>
-      <Navbar />
-      <div className="container mx-auto p-4 bg-gray-200">{children}</div>
-      <Footer />
-    </div>
+   <>
+   <Navbar2/>
+   <main>
+    <Arfadigitalschool/>
+   </main>
+   <Footer1/>
+   </>
   );
 };
 
 export default ArfaDigitalSchoolLayout;
+
+
+
+
+

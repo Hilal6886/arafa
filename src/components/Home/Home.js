@@ -38,7 +38,8 @@ const Home = () => {
               alt="Arfa School Logo"
               className="w-20 h-20 mx-auto mb-4"
             />
-            <h2 className="text-xl font-bold mb-2 text-center text-gray-800">Arfa School</h2>
+            <h2 className="text-xl font-bold mb
+            -2 text-center text-gray-800">Arfa School</h2>
             <p className="text-gray-600 mb-4 text-center">
               Providing quality education for a brighter future.
             </p>
@@ -68,7 +69,7 @@ const Home = () => {
                students with digital skills for the modern world.
             </p>
             <Link
-              to="/arfa-digital-school"
+              to="/arfaDigital/hero"
               className="bg-blue-500 text-white text-center px-4 py-2 rounded-md block mx-auto"
             >
               Visit Digital School
