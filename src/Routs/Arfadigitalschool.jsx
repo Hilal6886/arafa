@@ -13,7 +13,7 @@ const Arfadigitalschool = () => {
   return (
     <Routes>
      
-        <Route path="hero1" element={<Hero2 />} />
+        <Route path="hero2" element={<Hero2 />} />
         <Route path="courses1" element={<Courses2 />} />
         <Route path="admission1" element={<Admission2 />} />
         <Route path="fee1" element={<Fee2 />} />

@@ -134,6 +134,7 @@ module.exports = {
       "4xl": "1850px",
       "4xl-max": { max: "1850px" },
     },
+    
     colors: () => ({
       white: "#ffffff",
       lightPrimary: "#F4F7FE",
@@ -307,6 +308,14 @@ module.exports = {
         700: "#2111A5",
         800: "#190793",
         900: "#11047A",
+      },
+      Heart: {
+        500: "843DFF",
+        600: "#7916ff",
+        700: "#ff2fc0",
+        800: "#828082",
+        900: "#585758",
+
       },
       shadow: {
         500: "rgba(112, 144, 176, 0.08)",

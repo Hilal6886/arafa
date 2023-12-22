@@ -1,81 +1,49 @@
-import React from 'react';
-import category1Image from '.././assets/images/category-1.svg';
-import category2Image from '.././assets/images/category-2.svg';
-import category3Image from '.././assets/images/category-3.svg';
-import category4Image from '.././assets/images/category-4.svg';
+import React, { useEffect } from 'react';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import aboutUsImage1 from '../assets/imagest/about.jpg';
 
-const Category = () => {
+const AboutUsSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: false,
+    });
+  }, []);
+
   return (
-    <section className="section category" aria-label="category">
-      <div className="container">
-        <p className="section-subtitle">Categories</p>
-        <h2 className="h2 section-title">
-          Online <span className="span">Classes</span> For Remote Learning.
+    <section className="py-16 px-4 lg:px-0 bg-gray-100" data-aos="fade-up">
+      <div className="text-center">
+        <h2 className="h2 section-title mb-[40px]">
+          <span className="span">About</span> Us
         </h2>
-        <p className="section-text">
-          Consectetur adipiscing elit sed do eiusmod tempor.
-        </p>
-        <ul className="grid-list">
-          <li>
-            <div className="category-card" style={{ '--color': '170, 75%, 41%' }}>
-              <div className="card-icon">
-                <img src={category1Image} width="40" height="40" loading="lazy" alt="Online Degree Programs" className="img" />
-              </div>
-              <h3 className="h3">
-                <a href="#" className="card-title">Online Degree Programs</a>
-              </h3>
-              <p className="card-text">
-                Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-              </p>
-              <span className="card-badge">7 Courses</span>
-            </div>
-          </li>
-          <li>
-            <div className="category-card" style={{ '--color': '351, 83%, 61%' }}>
-              <div className="card-icon">
-                <img src={category2Image} width="40" height="40" loading="lazy" alt="Non-Degree Programs" className="img" />
-              </div>
-              <h3 className="h3">
-                <a href="#" className="card-title">Non-Degree Programs</a>
-              </h3>
-              <p className="card-text">
-                Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-              </p>
-              <span className="card-badge">4 Courses</span>
-            </div>
-          </li>
-          <li>
-            <div className="category-card" style={{ '--color': '229, 75%, 58%' }}>
-              <div className="card-icon">
-                <img src={category3Image} width="40" height="40" loading="lazy" alt="Off-Campus Programs" className="img" />
-              </div>
-              <h3 className="h3">
-                <a href="#" className="card-title">Off-Campus Programs</a>
-              </h3>
-              <p className="card-text">
-                Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-              </p>
-              <span className="card-badge">8 Courses</span>
-            </div>
-          </li>
-          <li>
-            <div className="category-card" style={{ '--color': '42, 94%, 55%' }}>
-              <div className="card-icon">
-                <img src={category4Image} width="40" height="40" loading="lazy" alt="Hybrid Distance Programs" className="img" />
-              </div>
-              <h3 className="h3">
-                <a href="#" className="card-title">Hybrid Distance Programs</a>
-              </h3>
-              <p className="card-text">
-                Lorem ipsum dolor consec tur elit adicing sed umod tempor.
-              </p>
-              <span className="card-badge">8 Courses</span>
-            </div>
-          </li>
-        </ul>
+      </div>
+      <div className="container mx-auto flex flex-col lg:flex-row items-center">
+        {/* Images Section */}
+        <div className="lg:w-1/2 mb-8 lg:mb-0" data-aos="fade-right">
+          <img
+            src={aboutUsImage1}
+            alt="About Us Image 1"
+            className="w-full h-auto rounded-md shadow-lg"
+          />
+        </div>
+
+        {/* Text Section */}
+        <div className="lg:w-1/2 lg:pl-8  flex flex-col items-center" data-aos="fade-left">
+          <p className="text-Heart-800 text-center mb-4">
+            Arafah International School offers an enriching and seamless educational journey within a supportive community dedicated to excellence in both the present and the beyond. Each facet of our educational approach is meticulously crafted to captivate our students' intellect and talents, reshaping their perspectives to navigate the competitive global landscape while nurturing their personal aspirations.
+          </p>
+          <p className="text-Heart-800  text-center mb-4">
+            In our eyes, every child is a unique individual endowed with distinct abilities. From grasping the intricacies of science and mathematics to cultivating the art of eloquent public speaking, our students are meticulously cultivated to articulate what distinguishes them as global citizens.
+          </p>
+          <button className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-700">
+            Read More
+          </button>
+        </div>
       </div>
     </section>
   );
 };
 
-export default Category;
+export default AboutUsSection;

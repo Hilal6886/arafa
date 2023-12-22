@@ -13,7 +13,13 @@ import Admission from '../pages/Admission.jsx';
 import Fee from '../pages/Fee.jsx';
 import Contact from '../pages/Contact.jsx';
 import Category from "pages/Category.jsx";
-import Signup from "pages/Signup.js";
+import ImageGallery from "pages/ImageGallery";
+import FaqSection from "pages/Faq";
+import Addblog from "pages/Addblog";
+import Blog from "pages/Blog";
+import Detail from "pages/Detail";
+import CardSection from "pages/CardSection";
+
 
 const ArfaSchool = () => {
   const [active, setActive] = useState("CBlog");
@@ -38,17 +44,18 @@ const ArfaSchool = () => {
     <Routes>
      
         <Route path="hero" element={<Hero />} />
+        <Route path="cour" element={<CardSection />} />
         <Route path="courses" element={<Courses />} />
         <Route path="admission" element={<Admission />} />
         <Route path="fee" element={<Fee />} />
         <Route path="contact" element={<Contact />} />
         <Route path="contact" element={<Category />} />
-        
-        <Route path="signup" element={
-            !currentUser?.emailVerified
-              ? <Signup />
-              : <Navigate to='/' replace />
-          } />
+        <Route path="conta" element={<ImageGallery />} />
+        <Route path="conta" element={<FaqSection />} />
+        <Route path="Addblog" element={<Addblog user={user} setActive={setActive}/>}/>
+        <Route path="/update/:id" element={<Addblog user={user} setActive={setActive} />}/>
+        <Route path="Blog" element={<Blog setActive={setActive} user={user} active={active} />} />
+        <Route path="/detail/:id" element={<Detail user={user} />} />
       
     </Routes>
   );

@@ -1,109 +1,127 @@
-import React from 'react';
-import heroBgImage from '.././assets/imagest/hero-bg.svg';
-import heroBanner1 from '.././assets/imagest/sch.jpg';
-import heroBanner2 from '.././assets/imagest/Output.jpg';
-import heroShape1 from '.././assets/imagest/hero-banner-2.jpg';
-import heroShape2 from '.././assets/imagest/hero-banner-2.jpg';
-import aboutBannerImage from '.././assets/imagest/about-banner.jpg';
-import aboutShape1Image from '.././assets/imagest/about-shape-1.svg';
-import aboutShape2Image from '.././assets/imagest/about-shape-2.svg';
-import aboutShape3Image from '.././assets/imagest/about-shape-3.png';
-import aboutShape4Image from '.././assets/imagest/about-shape-4.svg';
-import Category from './Category';
-import Courses from './Courses';
-
-
+import React, { useEffect } from "react";
+import "aos/dist/aos.css";
+import AOS from "aos";
+import heroBgImage from ".././assets/imagest/heroB.png";
+import heroBanner1 from ".././assets/imagest/sch.jpg";
+import hero9 from ".././assets/imagest/hero9.jpg";
+import hero10 from ".././assets/imagest/Output1.jpg";
+import Category from "./Category";
+import Courses from "./Courses";
+import Fee from "./Fee";
+import ImageGallery from "./ImageGallery";
+import FaqSection from "./Faq";
+import Blog from "./Blog";
+import CardSection from "./CardSection";
+import ContactUs from "./Contact";
 
 const HomeSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800, // Set the animation duration
+      easing: "ease-in-out", // Set the easing function
+      once: true, // Set whether animation should happen only once
+    });
+  }, []);
+
   return (
     <div>
-      <section>
-      <div
-        className="section hero has-bg-image"
-        id="home"
-        aria-label="home"
+      <section
+        className="relative lg:mt-[6px] flex h-screen  w-full items-center bg-cover bg-center"
         style={{ backgroundImage: `url(${heroBgImage})` }}
+        data-aos="fade"
       >
-        <div className="container">
-          <div className="hero-content">
-            <h1 className="h1 section-title text-12px">
-            Elevate Your Future With <span className="span">Arafah</span> International School
-            </h1>
-            <p className="hero-text">
-            Empowering Minds, Building Leaders, and Nurturing Excellence in Education
-            </p>
-           
-          </div>
-
-          <figure className="hero-banner">
-            <div className="img-holder one" style={{ '--width': 270, '--height': 300 }}>
-              <img src={heroBanner1} width="270" height="300" alt="hero banner" className="img-cover" />
-            </div>
-
-            <div className="img-holder two" style={{ '--width': 240, '--height': 370 }}>
-              <img src={heroBanner2} width="240" height="370" alt="hero banner" className="img-cover" />
-            </div>
-
-           
-          </figure>
-        </div>
-
-      </div>
-      </section>
-      <Courses/>
-      <Category />
-      <section className="section about" id="about" aria-label="about">
-      <div className="container">
-        <figure className="about-banner">
-          <div className="img-holder" style={{ '--width': 520, '--height': 370 }}>
-            <img
-              src={aboutBannerImage}
-              width="520"
-              height="370"
-              loading="lazy"
-              alt="about banner"
-              className="img-cover"
-            />
-          </div>
-          <img src={aboutShape1Image} width="360" height="420" loading="lazy" alt="" className="shape about-shape-1" />
-          <img src={aboutShape2Image} width="371" height="220" loading="lazy" alt="" className="shape about-shape-2" />
-          <img src={aboutShape3Image} width="722" height="528" loading="lazy" alt="" className="shape about-shape-3" />
-        </figure>
-
-        <div className="about-content">
-          <p className="section-subtitle">About Us</p>
-          <h2 className="h2 section-title">
-            Over 10 Years in <span className="span">Distant learning</span> for Skill Development
-          </h2>
-          <p className="section-text">
-            Lorem ipsum dolor sit amet consectur adipiscing elit sed eiusmod ex tempor incididunt labore dolore magna
-            aliquaenim ad minim.
+        <div className="p-8  z-10 mx-auto leading-[7rem] text-center">
+          <div className="flex flex-col gap-8 lg:mt-[3rem] lg:flex-row mt-[12rem] sm:mt-0">
+            <div className="lg:w-[50rem]">
+            <p className="text-[3rem] lg:text-[5.5rem] text-indigo-600 font-bold md:text-left tracking-wide text-headingColor">
+            Arafah 
+            <span className=" text-[3rem] lg:text-[5.5rem] ">
+          International
+            School
+            </span>
           </p>
-          <ul className="about-list">
-            <li className="about-item">
-              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-              <span className="span">Expert Trainers</span>
-            </li>
-            <li className="about-item">
-              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-              <span className="span">Online Remote Learning</span>
-            </li>
-            <li className="about-item">
-              <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-              <span className="span">Lifetime Access</span>
-            </li>
-          </ul>
-          <img src={aboutShape4Image} width="100" height="100" loading="lazy" alt="" className="shape about-shape-4" />
+  
+          <p className="text-base text-textColor  justify-center text-center md:text-left md:w-[80%]">
+          Discover a world of knowledge and growth at Arafa International School.
+           Empowering young minds with excellence in education, we create an environment 
+           where curiosity thrives,
+           dreams soar, and futures are shaped. Join us in the journey of learning
+          </p>
+  
+          <button
+            type="button"
+            className=" mt-[1rem] text-white bg-gradient-to-br from-indigo-700 to-indigo-700 w-full md:w-auto px-4 py-2  rounded-lg hover:shadow-lg transition-all ease-in-out duration-100"
+          >
+            Addmision now
+          </button>
+            </div>
+            <div className="flex lg:mt-[3rem] justify-end gap-[05px] lg:w-1/2 ">
+              <div>
+                <img
+                  src={heroBanner1}
+                  alt="Hero Banner 1"
+                  className="w-full rounded-l-[34px] "
+                  data-aos="fade-right"
+                />
+              </div>
+              <div className="mt-[0px]" data-aos="fade-left">
+                <img
+                  src={hero10}
+                  alt="Hero Banner 1"
+                  className="mb-[03px] w-[205px] rounded-r-[10px] "
+                />
+                <img
+                  src={hero9}
+                  alt="Hero Banner 1"
+                  className="w-[205px] rounded-r-[10px] "
+                />
+              </div>
+
+              <div className="from-black to-transparent absolute inset-0 bg-gradient-to-r"></div>
+            </div>
+          </div>
         </div>
-        
-      </div>
-    </section>
-    
+      </section>
+      <CardSection />
+      <section>
+        <Category />
+      </section>
+
+      <section>
+        <Courses />
+      </section>
+      <section>
+        <div className="mt-[123px] text-center">
+          <h2 className="h2 section-title mb-[40px]">
+            {" "}
+            Explore
+            <span className="span">Our Campus</span> Gallary
+          </h2>
+        </div>
+        <ImageGallery />
+      </section>
+      <section>
+        <div className="mt-[23px] text-center">
+          <h2 className="h2 section-title mb-[40px]">
+            Our <br />
+            <span className="span">Daily Blogs</span>
+          </h2>
+        </div>
+        <Blog />
+      </section>
+      <section>
+        <div className="mt-[23px] text-center">
+          <h2 className="h2 section-title mb-[40px]">
+            Frequently
+            <span className="span">Asked</span> Questions
+          </h2>
+        </div>
+        <FaqSection />
+      </section>
+      <ContactUs />
+      <section></section>
     </div>
-
-
   );
-
 };
 
 export default HomeSection;

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
-
-import { auth,  registerWithEmailAndPassword,
-  signInWithGoogle,  sendEmailVerification, } from "srevices/users.service";
+import {
+  auth,
+  registerWithEmailAndPassword,
+  signInWithGoogle,  sendEmailVerification,
+} from "srevices/users.service";
 import {useAuthValue} from './AuthContext'
-
+import "./Signup.css";
 function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,6 +49,7 @@ function Signup() {
   return (
     <div className="register">
       <div className="register__container">
+      <h1 className="text-purple-900 text-xl"> sign up</h1>
         <input
           type="text"
           className="register__textBox"
@@ -70,10 +73,13 @@ function Signup() {
         />
          <input 
             type='password'
+            className="register__textBox"
             value={confirmPassword} 
-            required
+         
             placeholder='Confirm password'
-            onChange={e => setConfirmPassword(e.target.value)}/>
+            onChange={e => setConfirmPassword(e.target.value)}
+            />
+
         <button className="register__btn" onClick={register}>
           Register
         </button>
