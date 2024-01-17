@@ -1,129 +1,157 @@
-// src/Admission.js
-import React from "react";
+import React, { useState } from "react";
 import { FaUser, FaEnvelope, FaPhone, FaUserGraduate } from "react-icons/fa";
+import { MdGrade, MdHearing } from "react-icons/md";
+import { db } from "../firebase";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { addDoc, collection } from "firebase/firestore";
 
 const Admission = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return; // Prevent multiple submissions
+    }
+
+    setIsSubmitting(true);
+
+    const formData = new FormData(event.target);
+    const formDataObject = {};
+    formData.forEach((value, key) => {
+      formDataObject[key] = value;
+    });
+
+    try {
+      // Add a timestamp to the form data
+      formDataObject.timestamp = new Date();
+
+      const admissionsCollection = collection(db, "admissions");
+      await addDoc(admissionsCollection, formDataObject);
+      toast.success("Thank you! For Submitting This Form Our Team will Contact You With 24 Hours.");
+
+      // Reset the form fields
+      event.target.reset();
+    } catch (error) {
+      console.error("Error submitting data to Firestore:", error);
+      toast.error("Error submitting data to Firestore. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+
   return (
-    <div className="mt-[90px] flex h-screen items-center justify-center md:mt-[100px]">
-      <div className="max-w-md rounded-md bg-gradient-to-r from-blue-300 to-purple-400 p-8 text-white shadow-lg">
-        <div className="mb-6 text-center text-3xl font-bold">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r mt-8 from-purple-500 via-pink-500 to-red-500">
+      <div className="bg-white mx-[1rem] p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-3xl font-extrabold mb-6 text-center text-[#163269]">
           Admission Enquiry Form
-        </div>
-        <form className="-mx-2 flex flex-wrap">
-          <div className="mb-4 w-full px-2 md:w-1/2">
-            <label htmlFor="parentName" className="mb-2 block ">
-              Parent Name:
-            </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <FaUser className="absolute top-2 left-3 text-white" />
+        </h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="parentName" className="text-sm  text-gray-400">
+                <FaUser className="mr-2 inline-block text-[#163269]" />
+                Parent Name:
+              </label>
               <input
                 type="text"
                 id="parentName"
                 name="parentName"
-                className="bg-transparent w-full border-none p-2 text-white focus:outline-none"
+               
+                className="w-full border-2 border-gray-400 rounded p-3 outline-none focus:border-blue-500"
                 required
               />
             </div>
-          </div>
-          <div className="mb-4 w-full px-2 md:w-1/2">
-            <label htmlFor="email" className="mb-2 block">
-              Email:
-            </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <FaEnvelope className="absolute top-2 left-3 text-white" />
+            <div>
+              <label htmlFor="email" className="text-sm  text-gray-400">
+                <FaEnvelope className="mr-2 inline-block text-[#163269]" />
+                Email:
+              </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                className="bg-transparent w-full border-none p-2 text-white focus:outline-none"
+                className="w-full border-2 rounded border-gray-400 p-3 outline-none focus:border-blue-500"
                 required
               />
             </div>
           </div>
-          <div className="mb-4 w-full px-2 md:w-1/2">
-            <label htmlFor="phone" className="mb-2 block">
-              Phone No:
-            </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <FaPhone className="absolute top-2 left-3 text-white" />
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="phone" className="text-sm  text-gray-400">
+                <FaPhone className="mr-2 inline-block text-[#163269]" />
+                Phone No:
+              </label>
               <input
                 type="tel"
                 id="phone"
                 name="phone"
-                className="bg-transparent w-full border-none p-2 text-white focus:outline-none"
+                className="w-full border-2  rounded border-gray-400 p-3 outline-none focus:border-blue-500"
                 required
               />
             </div>
-          </div>
-          <div className="mb-4 w-full px-2 md:w-1/2">
-            <label htmlFor="studentName" className="mb-2 block">
-              Student Name:
-            </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <FaUserGraduate className="absolute top-2 left-3 text-white" />
+            <div>
+              <label htmlFor="studentName" className="text-sm  text-gray-400">
+                <FaUserGraduate className="mr-2 inline-block text-[#163269]" />
+                Student Name:
+              </label>
               <input
                 type="text"
                 id="studentName"
                 name="studentName"
-                className="bg-transparent w-full border-none p-2 text-white focus:outline-none"
+                className="w-full border-2  rounded border-gray-400 p-3 outline-none focus:border-blue-400"
                 required
               />
             </div>
           </div>
-          <div className="mb-4 w-full px-2">
-            <label htmlFor="grade" className="mb-2 block">
+          <div className="mb-4">
+            <label htmlFor="grade" className="text-sm  text-gray-400">
+            < MdGrade className="mr-2 inline-block text-[#163269]" size={20} />
               Looking for Grade:
             </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <select
-                id="grade"
-                name="grade"
-                className="text-black w-full  border-none bg-white bg-opacity-30 p-2 focus:outline-none"
-              >
-                <option value="Daycare" className="text-Heart-600 font-bold text-xl">Daycare</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="FullTimeHifz" className="text-Heart-600 bold">Full Time Hifz</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-                <option value="PreNursery" className="text-Heart-600 bold">Pre Nursery</option>
-              </select>
-            </div>
+            <select
+              id="grade"
+              name="grade"
+              className="w-full border-2 border-gray-400 rounded p-3 outline-none focus:border-gray-400"
+            >
+              <option value="Daycare">Daycare</option>
+              <option value="PreNursery">Pre Nursery</option>
+              <option value="FullTimeHifz">Full Time Hifz</option>
+            </select>
           </div>
-          <div className="mb-4 w-full px-2">
-            <label htmlFor="hearAboutUs" className="mb-2 block">
+          <div className="mb-4">
+            <label htmlFor="hearAboutUs" className="text-sm  text-gray-400">
+            < MdHearing className="mr-2 inline-block text-[#163269]" size={20} />
               Where did you hear about us:
             </label>
-            <div className="relative rounded-md bg-white bg-opacity-30 p-2">
-              <select
-                id="hearAboutUs"
-                name="hearAboutUs"
-                className="w-full border-none bg-white bg-opacity-30 p-2 text-Heart-500 focus:outline-none "
-              >
-                <option value="Facebook" className="text-Heart-600 bold">Facebook</option>
-                <option value="Instagram" className="text-Heart-600 bold">Instagram</option>
-                <option value="Google" className="text-Heart-600 bold">Google</option>
-                <option value="Friends" className="text-Heart-600 bold">Friends and Acquaintance</option>
-                <option value="Linkedin" className="text-Heart-600 bold">Linkedin</option>
-                <option value="Other" className="text-Heart-600 bold">Other</option>
-              </select>
-            </div>
+            <select
+              id="hearAboutUs"
+              name="hearAboutUs"
+              className="w-full border-2 border-gray-400 rounded p-3 outline-none focus:border-gray-400"
+            >
+              <option value="Facebook">Facebook</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Google">Google</option>
+              <option value="Friends">Friends and Acquaintance</option>
+              <option value="Linkedin">Linkedin</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
-          <div className="mb-4 w-full px-2 text-center">
+          
+          <div>
             <button
               type="submit"
-              className="rounded-md bg-gradient-to-r from-green-400 to-blue-500 px-6 py-2 text-white"
+              className={`w-full bg-green-500 text-white rounded-md py-3 hover:bg-green-600 transition duration-300 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+              disabled={isSubmitting}
             >
-              Submit
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </div>
         </form>
+        <ToastContainer />
       </div>
     </div>
   );

@@ -51,15 +51,16 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="container justify-center my-12">
-      <div className="text-center">
-        
-        {isAdmin && (
-          <Link to="/addfaq" className="text-blue-500">
-            Add FAQ
-          </Link>
-        )}
+    <section className=" justify-center p-3 my-12">
+       
+        <div className="text-center mb-[2rem]">
+        <h2 className="text-2xl hed md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-6">
+        Frequently <span className="text-blue-500 hed">Asked</span> Questions
+        </h2>
+       
+       
       </div>
+      
       <div className="grid gap-4">
         {faqs &&
           faqs.map((faq, index) => (
@@ -68,13 +69,13 @@ const FaqSection = () => {
                 className="flex cursor-pointer items-center justify-between"
                 onClick={() => handleToggle(index)}
               >
-                <h3 className="text-lg font-semibold">{faq.question}</h3>
-                <span className="text-purple-500">
-                  {activeIndex === index ? <BsDash /> : <BsPlus />}
+                <h3 className="text-sm leading-relaxed md:text-lg lg:text-xl xl:text-xl xl:text-xl   text-[#444444] font-semibold">{faq.question}</h3>
+                <span className="text-purple-500 ">
+                  {activeIndex === index ? <BsDash size={35}/> : <BsPlus size={35} />}
                 </span>
               </div>
               {activeIndex === index && (
-                <div className="text-gray-700 mt-4">{faq.answer}</div>
+                <div className="text-gray-400 text-sm leading-relaxed md:text-lg lg:text-xl xl:text-xl xl:text-xl  mt-4">{faq.answer}</div>
               )}
               {isAdmin && (
                 <div className="mt-4 flex">

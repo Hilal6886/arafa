@@ -11,6 +11,9 @@ import Signup from "pages/Signup";
 import Login from "pages/Login";
 import FAQ from "pages/AddFaq";
 import Faqupdate from "pages/Faqupdate";
+import VerifyEmail from "pages/VerifyEmail";
+import { AuthProvider } from 'pages/AuthContext'
+import Reset from "pages/Reset";
 const App = () => {
   const [active, setActive] = useState("CBlog");
   const [user, setUser] = useState(null);
@@ -29,6 +32,7 @@ const App = () => {
     })
   }, [])
   return (
+    <AuthProvider value={{ currentUser, timeActive, setTimeActive }}>
     <Routes>
      
       <Route path="/" element={<Home />} />
@@ -38,8 +42,11 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/addfaq" element={<FAQ />} />
       <Route path="/updatefaq/:id" element={<Faqupdate />} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="/reset" element={<Reset />} />
       
     </Routes>
+    </AuthProvider>
     
   );
 };

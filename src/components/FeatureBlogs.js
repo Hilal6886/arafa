@@ -14,7 +14,7 @@ const FeatureBlogs = ({ blogs, title }) => {
           onClick={() => navigate(`/arfa/detail/${item.id}`)}
         >
           <div className="mt-4">
-            <div className="text-lg font-semibold">{item.title}</div>
+            <div className="text-lg text-[#444444] font-semibold">{item.title}</div>
             <div className="text-gray-500">
               {item.timestamp.toDate().toDateString()}
             </div>

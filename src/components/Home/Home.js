@@ -15,77 +15,82 @@ const cardVariants = {
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600">
-      <div className="container mx-auto max-w-screen-lg p-8">
-      <img
-      src={logo3}
-      alt="Arfa School Logo"
-      className="mx-auto mb-4 w-[300px]"
-    /> 
-      
-      <h1 className="mb-8 text-center text-4xl font-bold text-white">
-          Welcome To Arafa Group Of Institutions
-        </h1>
+    <section className="bg-gray-100 p-4 rounded-lg shadow-lg">
+      <div className="flex min-h-screen items-center justify-center bg-grey-100 ">
+        <div className="container mx-auto max-w-screen-lg p-">
+          <img
+            src={logo3}
+            alt="Arfa School Logo"
+            className="mx-auto mb-4 w-[150px] lg:w-[300px]"
+          />
 
-      
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {/* Arfa School Card */}
-          <motion.div
-            className="rounded-lg bg-white p-6 shadow-md"
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <img
-              src={logo1}
-              alt="Arfa School Logo"
-              className="mx-auto mb-4 w-[160px]"
-            />
-            <h2
-              className="mb -2 text-gray-800
-            text-center text-xl font-bold"
-            >
-              Arfa School
-            </h2>
-            <p className="text-gray-600 mb-4 text-center">
-              Providing quality education for a brighter future.
-            </p>
-            <Link
-              to="/arfa/hero"
-              className="mx-auto block rounded-md bg-purple-500 px-4 py-2 text-center text-white"
-            >
-              Visit School
-            </Link>
-          </motion.div>
+          <h1 className="mb-8 text-center text-2xl uppercase lg:text-4xl font-bold ">
+            Welcome To Arafa Group Of Institutions
+          </h1>
 
-          {/* Arfa Digital School Card */}
-          <motion.div
-            className="rounded-lg bg-white p-6 shadow-md"
-            variants={cardVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <img
-              src={logo2}
-              alt="Arfa Digital School Logo"
-              className="mx-auto mb-4 w-[140px]"
-            />
-            <h2 className="text-gray-800 mb-2 text-center text-xl font-bold">
-              Arfa Digital School
-            </h2>
-            <p className="text-gray-600 mb-4 text-center">
-              students with digital skills for the modern world.
-            </p>
-            <Link
-              to="/arfaDigital/hero"
-              className="mx-auto block rounded-md bg-purple-500 px-4 py-2 text-center text-white"
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {/* Arfa School Card */}
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:border-blue-300` "
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
             >
-              Visit Digital School
-            </Link>
-          </motion.div>
+              <img
+                src={logo1}
+                alt="Arfa School Logo"
+                className="mx-auto mb-4 w-[160px]"
+              />
+
+              <p className="text-gray-400 mb-4 text-center">
+                Providing quality education for a brighter future.
+              </p>
+
+              <Link
+                to="/arfa/hero"
+                className="mx-auto block rounded-md bg-purple-500 px-4 py-2 text-center text-white"
+              >
+                Visit School
+              </Link>
+              <span
+                className="mx-auto block rounded-md bg-blue-500 px-[5px] py-[3px] text-center text-white mt-[1rem]" >
+                H.B.R Layout
+              </span>
+            </motion.div>
+
+            {/* Arfa Digital School Card */}
+            <motion.div
+              className="bg-white p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105 focus:scale-105 focus:outline-none focus:ring focus:border-blue-300` "
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <img
+                src={logo2}
+                alt="Arfa Digital School Logo"
+                className="mx-auto mb-4 w-[140px]"
+              />
+
+              <p className="text-gray-400 mb-4 text-center">
+                students with digital skills for the modern world.
+              </p>
+              <Link
+                to="/arfaDigital/hero"
+                className="mx-auto block rounded-md bg-purple-500 px-4 py-2 text-center text-white"
+              >
+                Visit Digital School
+              </Link>
+              <span
+                className="mx-auto block rounded-md bg-blue-500 px-[5px] py-[3px] text-center text-white mt-[1rem]" >
+                UAE INDIA
+              </span>
+            </motion.div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
   );
 };
 

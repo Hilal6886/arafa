@@ -19,34 +19,28 @@ const BlogSection = ({
   const isAdmin = currentUser?.isAdmin || false;
 
   return (
-    <div className="bg-white shadow-lg rounded-lg overflow-hidden  ">
-      <div className="relative h-58 overflow-hidden">
-        <img className="w-full h-full object-cover" src={imgUrl} alt={title} />
+    <div className="blog-section-container bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+      <div className="blog-section-image">
+        <img className="w-full h-56 object-cover" src={imgUrl} alt={title} />
       </div>
       <div className="p-6">
-        <h6 className="text-sm text-indigo-500 font-semibold tracking-wide uppercase">
-          {category}
-        </h6>
-        <h2 className="mt-2 text-xl font-semibold text-gray-900">{title}</h2>
-        <div className="flex items-center mt-2">
-          <p className="text-sm text-gray-700">
-            {author} - {timestamp.toDate().toDateString()}
-          </p>
-        </div>
-        <p className="mt-3 text-gray-600">{excerpt(description, 120)}</p>
+        <h6 className="text-indigo-700 uppercase tracking-wide">{category}</h6>
+        <h2 className="text-lg md:text-lg lg:text-xl xl:text-xl xl:text-xl font-sami-bold mb-1 text-Heart-100 ">{title}</h2>
+       
+        <p className="text-gray-400 text-sm leading-relaxed md:text-lg lg:text-lg xl:text-lg xl:text-lg mt-4">{excerpt(description, 120)}</p>
         <Link to={`/arfa/detail/${id}`}>
-          <button className="mt-4 bg-indigo-500 text-white px-4 py-2  focus:outline-none focus:shadow-outline-indigo">
+          <button className="mt-4 bg-[#163269] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Read More
           </button>
         </Link>
         {isAdmin && (
-          <div className="mt-4 flex justify-end">
+          <div className="mt-4 flex justify-end items-center">
             <FaTrash
-              className="mr-4 cursor-pointer"
+              className="mr-4 cursor-pointer text-red-600 hover:text-red-800"
               onClick={() => handleDelete(id)}
             />
             <Link to={`/arfa/update/${id}`}>
-              <FaEdit className="mr-4 cursor-pointer" />
+              <FaEdit className="cursor-pointer text-blue-600 hover:text-blue-800" />
             </Link>
           </div>
         )}

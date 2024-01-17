@@ -52,21 +52,25 @@ function VerifyEmail() {
   }
 
   return (
-    <div className='center'>
-      <div className='verifyEmail'>
-        <h1>Verify your Email Address</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500">
+      <div className="bg-white p-8  mx-[1rem] rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Verify your Email Address</h1>
         <p>
           <strong>A Verification email has been sent to:</strong><br/>
-          <span>{currentUser?.email}</span>
+          <span className="text-blue-600">{currentUser?.email}</span>
         </p>
-        <span>Follow the instruction in the email to verify your account</span>       
-        <button 
+        <p className="mt-2 text-gray-600">Follow the instructions in the email to verify your account.</p>
+        <button
           onClick={resendEmailVerification}
           disabled={timeActive}
-        >Resend Email {timeActive && time}</button>
+          className="w-full bg-blue-500 text-white rounded-md py-3 mt-4 hover:bg-blue-600 transition duration-300"
+        >
+          Resend Email {timeActive && time}
+        </button>
       </div>
     </div>
-  )
+  );
+  
 }
 
 export default VerifyEmail

@@ -5,6 +5,7 @@ import Footer1 from "components/Footers/Footer1";
 import ArfaSchool from "Routs/Arfaschool";
 
 const ArfaSchoolLayout = () => {
+  
   return (
    <>
    <Navbar1/>

@@ -14,7 +14,7 @@ const Category = ({ catgBlogsCount }) => {
                 to={`/category/${item.category}`}
                 className="text-gray-700 flex items-center"
               >
-                <FaFolder className="mr-2" /> {/* Folder icon */}
+                <FaFolder className="mr-2  text-[#163269]" /> {/* Folder icon */}
                 <span>{item.category}</span>
                 <span className="text-sm text-gray-500 ml-1">({item.count})</span>
               </Link>

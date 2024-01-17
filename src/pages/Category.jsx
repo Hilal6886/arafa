@@ -1,49 +1,84 @@
 import React, { useEffect } from 'react';
-import 'aos/dist/aos.css';
 import AOS from 'aos';
-import aboutUsImage1 from '../assets/imagest/about.jpg';
+import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+import { GiTeacher } from 'react-icons/gi';
+import { MdWorkspacesFilled } from 'react-icons/md';
+import { FaBookReader } from 'react-icons/fa';
 
-const AboutUsSection = () => {
+const AboutUsPage = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 600,
       easing: 'ease-in-out',
-      once: false,
     });
   }, []);
 
   return (
-    <section className="py-16 px-4 lg:px-0 bg-gray-100" data-aos="fade-up">
-      <div className="text-center">
-        <h2 className="h2 section-title mb-[40px]">
-          <span className="span">About</span> Us
+    <section className="py-12 px-3 lg:px-20 ">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl hed font-bold text-gray-800">
+          <span className="text-blue-500 hed">About</span> Us
         </h2>
+        <p className="text-lg md:text-xl lg:text-2xl text-Heart-800 text-center mb-4">
+          Fostering Growth, Igniting Passion
+        </p>
       </div>
-      <div className="container mx-auto flex flex-col lg:flex-row items-center">
-        {/* Images Section */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0" data-aos="fade-right">
+
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+        <div
+          data-aos="zoom-in"
+          className="relative overflow-hidden rounded-lg shadow-xl lg:mr-8"
+        >
           <img
-            src={aboutUsImage1}
-            alt="About Us Image 1"
-            className="w-full h-auto rounded-md shadow-lg"
+            className="w-full h-full object-cover object-center"
+            src="https://img.freepik.com/free-photo/front-view-little-boy-class-school_23-2148848326.jpg?w=740&t=st=1704663192~exp=1704663792~hmac=f8c9492f070e56c290ab81234eb9c89cdaebef0c7e9741698a0fda820572555c"
+            alt=""
           />
         </div>
 
-        {/* Text Section */}
-        <div className="lg:w-1/2 lg:pl-8  flex flex-col items-center" data-aos="fade-left">
-          <p className="text-Heart-800 text-center mb-4">
-            Arafah International School offers an enriching and seamless educational journey within a supportive community dedicated to excellence in both the present and the beyond. Each facet of our educational approach is meticulously crafted to captivate our students' intellect and talents, reshaping their perspectives to navigate the competitive global landscape while nurturing their personal aspirations.
-          </p>
-          <p className="text-Heart-800  text-center mb-4">
-            In our eyes, every child is a unique individual endowed with distinct abilities. From grasping the intricacies of science and mathematics to cultivating the art of eloquent public speaking, our students are meticulously cultivated to articulate what distinguishes them as global citizens.
-          </p>
-          <button className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-indigo-700">
-            Read More
-          </button>
+        <div className="max-w-lg mx-auto lg:order-2">
+          <p className="text-base text-center font-semibold text-indigo-600 mb-2">Arafa International School</p>
+          <h1 className="text-3xl text-center font-bold text-[#163269] mb-4">
+            Our Vision and Mission
+          </h1>
+          
+
+          <ul className="mt-6 space-y-6 text-lg text-Heart-800">
+            <li className="flex items-start">
+              <GiTeacher className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <span className="ml-3">
+                <strong className="font-semibold text-gray-400">Exceptional Faculty.</strong>
+                Our success is powered by a dedicated and highly qualified faculty. With expertise, enthusiasm, and genuine commitment, they ensure the well-being and academic success of each student.
+              </span>
+            </li>
+            <li className="flex items-start">
+              <FaBookReader className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <span className="ml-3">
+                <strong className="font-semibold text-gray-400">Holistic Education.</strong>
+                Beyond academics, our curriculum fosters well-rounded individuals, emphasizing leadership, teamwork, and social responsibility.
+              </span>
+            </li>
+            <li className="flex items-start">
+              <MdWorkspacesFilled className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <span className="ml-3">
+                <strong className="font-semibold text-gray-400">Innovative Spaces.</strong>
+                At Arafa International School, our cutting-edge classrooms and facilities inspire dynamic learning experiences, fostering creativity and exploration.
+              </span>
+            </li>
+          </ul>
+
+          <div className="text-center mt-8">
+            <Link to="/arfa/aboutus">
+              <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+                Read More
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default AboutUsSection;
+export default AboutUsPage;
