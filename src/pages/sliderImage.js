@@ -13,18 +13,18 @@ const sliderContent = [
   {
     title: "Shape Leaders",
     description: "Arafah's Innovative Vision",
-    urls: Second,
+    urls: "https://img.freepik.com/free-photo/women-work-table-analyze-documents_1150-26135.jpg?size=626&ext=jpg&uid=R99272721&ga=GA1.1.397597975.1703442575&semt=ais",
   },
   {
     title: "Nurture Talents",
     description: "Educational Excellence at Arafah",
-    urls: Third,
+    urls: Second,
   },
 
   {
     title: "Cultivate Potential",
     description: "Innovative Learning at Arafah",
-    urls: five,
+    urls: Third,
   },
   {
     title: "Foster Excellence",
@@ -34,7 +34,7 @@ const sliderContent = [
   {
     title: "Create Wonders",
     description: "Unlocking Creativity at Arafah",
-    urls: six,
+    urls: "https://img.freepik.com/free-photo/little-boy-doing-his-homework-library_23-2148694784.jpg?w=740&t=st=1706995574~exp=1706996174~hmac=620157b77ab781ebc325629b35eac58cecd6b512c67c0ba5406eb7d9056c83dc",
   },
 ];
 

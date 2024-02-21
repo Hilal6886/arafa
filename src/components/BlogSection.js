@@ -1,49 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { excerpt } from "../utility";
-import { FaTrash, FaEdit } from "react-icons/fa";
 
-const BlogSection = ({
-  id,
-  title,
-  description,
-  category,
-  imgUrl,
-  userId,
-  author,
-  timestamp,
-  handleDelete,
-}) => {
+const BlogSection = ({ id, title, description, category, imgUrl, userId, author, timestamp, handleDelete }) => {
   const userData = localStorage.getItem("USER");
-  const currentUser = userData ? JSON.parse(userData) : null;
-  const isAdmin = currentUser?.isAdmin || false;
+  let currentUser = null;
+  let isAdmin = false;
+  if (userData) {
+    currentUser = JSON.parse(userData);
+    isAdmin = currentUser.isAdmin;
+  }
 
   return (
-    <div className="blog-section-container bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
-      <div className="blog-section-image">
-        <img className="w-full h-56 object-cover" src={imgUrl} alt={title} />
-      </div>
-      <div className="p-6">
-        <h6 className="text-indigo-700 uppercase tracking-wide">{category}</h6>
-        <h2 className="text-lg md:text-lg lg:text-xl xl:text-xl xl:text-xl font-sami-bold mb-1 text-Heart-100 ">{title}</h2>
-       
-        <p className="text-gray-400 text-sm leading-relaxed md:text-lg lg:text-lg xl:text-lg xl:text-lg mt-4">{excerpt(description, 120)}</p>
-        <Link to={`/arfa/detail/${id}`}>
-          <button className="mt-4 bg-[#163269] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Read More
-          </button>
-        </Link>
-        {isAdmin && (
-          <div className="mt-4 flex justify-end items-center">
-            <FaTrash
-              className="mr-4 cursor-pointer text-red-600 hover:text-red-800"
-              onClick={() => handleDelete(id)}
-            />
-            <Link to={`/arfa/update/${id}`}>
-              <FaEdit className="cursor-pointer text-blue-600 hover:text-blue-800" />
-            </Link>
+    <div className="pb-4">
+      <div className="flex flex-wrap gap-[px] ">
+        <div className="w-full md:w-5/12">
+          <div className="hover-blogs-img">
+            <div className="blogs-img">
+              <img src={imgUrl} alt={title} className="w-full" />
+              <div></div>
+            </div>
           </div>
-        )}
+        </div>
+        <div className="w-full md:w-7/12">
+          <div className="text-start">
+            <h6 className="category catg-color">{category}</h6>
+            <span className="title py-2">{title}</span>
+            <span className="meta-info">
+              <p className="author">{author}</p> -&nbsp;
+              {timestamp.toDate().toDateString()}
+            </span>
+          </div>
+          <div className="short-description text-start">
+            {excerpt(description, 120)}
+          </div>
+          <Link to={`/arfa/detail/${id}`}>
+            <button className="btn btn-read">Read More</button>
+          </Link>
+          {isAdmin && (
+            <div className="float-right">
+              <i className="ri-delete-bin-line" style={{ margin: "15px", cursor: "pointer", color: "red" }} size="2x" onClick={() => handleDelete(id)}></i>
+              <Link to={`/update/${id}`}>
+                <i className="ri-edit-box-line" style={{ cursor: "pointer" }} size="2x"></i>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

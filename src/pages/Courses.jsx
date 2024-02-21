@@ -71,11 +71,11 @@ const Courses = () => {
   return (
     <section>
       <div className="text-center">
-        <h2 className="text-2xl md:text-3xl hed lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-6">
-        Our <span className="text-blue-500 hed">Courses</span>
+        <h2 className="text-xl md:text-xl hed lg:text-2xl xl:text-3xl mb-1 2xl:text-6xl font-bold mb-6">
+        Our <span className="text-pink-800 hed">Courses</span>
         </h2>
-        <p className="text-lg md:text-xl lg:text-2xl text-Heart-800 text-center mb-4">
-        Explore Your Academic Journey with Our Courses
+        <p className="text-lg md:text-xl lg:text-xl text-Heart-800 text-center mb-4">
+        Explore Our Academic Courses
         </p>
        
       </div>

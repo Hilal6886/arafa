@@ -17,10 +17,10 @@ const AboutUsPage = () => {
   return (
     <section className="py-12 px-3 lg:px-20 ">
       <div className="text-center mb-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl hed font-bold text-gray-800">
-          <span className="text-blue-500 hed">About</span> Us
+        <h2 className="text-xl md:text-2xl lg:text-3xl hed font-bold mb-1 text-gray-800">
+          <span className="text-pink-800 hed">About</span> Us
         </h2>
-        <p className="text-lg md:text-xl lg:text-2xl text-Heart-800 text-center mb-4">
+        <p className="text-lg md:text-xl lg:text-xl text-Heart-800 text-center mb-4">
           Fostering Growth, Igniting Passion
         </p>
       </div>
@@ -38,31 +38,30 @@ const AboutUsPage = () => {
         </div>
 
         <div className="max-w-lg mx-auto lg:order-2">
-          <p className="text-base text-center font-semibold text-indigo-600 mb-2">Arafa International School</p>
-          <h1 className="text-3xl text-center font-bold text-[#163269] mb-4">
+          <h1 className="text-3xl text-center font-bold text-gray-400 mb-4">
             Our Vision and Mission
           </h1>
           
 
-          <ul className="mt-6 space-y-6 text-lg text-Heart-800">
+          <ul className="mt-6 space-y-6 text-[16px] text-Heart-800">
             <li className="flex items-start">
-              <GiTeacher className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <GiTeacher className="mt-1 h-5 w-5 flex-none text-gray-400" />
               <span className="ml-3">
-                <strong className="font-semibold text-gray-400">Exceptional Faculty.</strong>
+                <strong className="font-semibold text-gray-400">Exceptional Faculty:   </strong>
                 Our success is powered by a dedicated and highly qualified faculty. With expertise, enthusiasm, and genuine commitment, they ensure the well-being and academic success of each student.
               </span>
             </li>
             <li className="flex items-start">
-              <FaBookReader className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <FaBookReader className="mt-1 h-5 w-5 flex-none text-gray-400" />
               <span className="ml-3">
-                <strong className="font-semibold text-gray-400">Holistic Education.</strong>
+                <strong className="font-semibold text-gray-400">Holistic Education :    </strong>
                 Beyond academics, our curriculum fosters well-rounded individuals, emphasizing leadership, teamwork, and social responsibility.
               </span>
             </li>
             <li className="flex items-start">
-              <MdWorkspacesFilled className="mt-1 h-5 w-5 flex-none text-indigo-600" />
+              <MdWorkspacesFilled className="mt-1 h-5 w-5 flex-none text-gray-400" />
               <span className="ml-3">
-                <strong className="font-semibold text-gray-400">Innovative Spaces.</strong>
+                <strong className="font-semibold text-gray-400">Innovative Spaces :     </strong>
                 At Arafa International School, our cutting-edge classrooms and facilities inspire dynamic learning experiences, fostering creativity and exploration.
               </span>
             </li>
@@ -70,7 +69,7 @@ const AboutUsPage = () => {
 
           <div className="text-center mt-8">
             <Link to="/arfa/aboutus">
-              <button className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
+              <button className="bg-indigo-500 text-white py-2 px-4 rounded-md hover:bg-green-600">
                 Read More
               </button>
             </Link>

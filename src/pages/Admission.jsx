@@ -52,28 +52,24 @@ const Admission = () => {
         <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="parentName" className="text-sm  text-gray-400">
-                <FaUser className="mr-2 inline-block text-[#163269]" />
-                Parent Name:
-              </label>
+              
               <input
                 type="text"
                 id="parentName"
                 name="parentName"
-               
+               placeholder=" 
+              Enter Parent Name"
                 className="w-full border-2 border-gray-400 rounded p-3 outline-none focus:border-blue-500"
                 required
               />
             </div>
             <div>
-              <label htmlFor="email" className="text-sm  text-gray-400">
-                <FaEnvelope className="mr-2 inline-block text-[#163269]" />
-                Email:
-              </label>
+             
               <input
                 type="email"
                 id="email"
                 name="email"
+                placeholder=" Enter Email"
                 className="w-full border-2 rounded border-gray-400 p-3 outline-none focus:border-blue-500"
                 required
               />
@@ -81,27 +77,23 @@ const Admission = () => {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="phone" className="text-sm  text-gray-400">
-                <FaPhone className="mr-2 inline-block text-[#163269]" />
-                Phone No:
-              </label>
+              
               <input
                 type="tel"
                 id="phone"
                 name="phone"
+                placeholder="Enter Phone No"
                 className="w-full border-2  rounded border-gray-400 p-3 outline-none focus:border-blue-500"
                 required
               />
             </div>
             <div>
-              <label htmlFor="studentName" className="text-sm  text-gray-400">
-                <FaUserGraduate className="mr-2 inline-block text-[#163269]" />
-                Student Name:
-              </label>
+              
               <input
                 type="text"
                 id="studentName"
                 name="studentName"
+                placeholder="Enter student Name"
                 className="w-full border-2  rounded border-gray-400 p-3 outline-none focus:border-blue-400"
                 required
               />
@@ -109,12 +101,13 @@ const Admission = () => {
           </div>
           <div className="mb-4">
             <label htmlFor="grade" className="text-sm  text-gray-400">
-            < MdGrade className="mr-2 inline-block text-[#163269]" size={20} />
+         
               Looking for Grade:
             </label>
             <select
               id="grade"
               name="grade"
+              placeholder="Looking for Grade"
               className="w-full border-2 border-gray-400 rounded p-3 outline-none focus:border-gray-400"
             >
               <option value="Daycare">Daycare</option>
@@ -124,7 +117,7 @@ const Admission = () => {
           </div>
           <div className="mb-4">
             <label htmlFor="hearAboutUs" className="text-sm  text-gray-400">
-            < MdHearing className="mr-2 inline-block text-[#163269]" size={20} />
+         
               Where did you hear about us:
             </label>
             <select

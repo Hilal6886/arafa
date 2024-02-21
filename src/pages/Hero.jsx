@@ -18,6 +18,7 @@ import Dots from "./Dots";
 import Arrows from "./Arrows";
 import sliderImage from "./sliderImage";
 import "./slider.css";
+import Contact from "./Contact";
 
 const len = sliderImage.length - 1;
 const HomeSection = () => {
@@ -40,7 +41,7 @@ const HomeSection = () => {
   return (
     <div>
       <section>
-        <div className="slider-container">
+        <div className="slider-contaner">
           <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
           
         
@@ -67,6 +68,10 @@ const HomeSection = () => {
       <section>
 
         <FaqSection />
+      </section>
+      <section>
+
+        <Contact />
       </section>
 
 

@@ -3,19 +3,26 @@ import { useNavigate } from "react-router-dom";
 
 const FeatureBlogs = ({ blogs, title }) => {
   const navigate = useNavigate();
-
   return (
-    <div className="mb-8 sticky">
-      <div className="text-xl font-semibold mb-4">{title}</div>
+    <div>
+      <div className="blog-heading text-start pt-3 py-2 mb-4">{title}</div>
       {blogs?.map((item) => (
         <div
-          className="mb-4 p-4 bg-white shadow-lg rounded-lg cursor-pointer"
+          className="row pb-3"
           key={item.id}
-          onClick={() => navigate(`/arfa/detail/${item.id}`)}
+          style={{ cursor: "pointer" }}
+          onClick={() => navigate(`/detail/${item.id}`)}
         >
-          <div className="mt-4">
-            <div className="text-lg text-[#444444] font-semibold">{item.title}</div>
-            <div className="text-gray-500">
+          <div className="col-5 align-self-center">
+            <img
+              src={item.imgUrl}
+              alt={item.title}
+              className="most-popular-img"
+            />
+          </div>
+          <div className="col-7 padding">
+            <div className="text-start most-popular-font">{item.title}</div>
+            <div className="text-start most-popular-font-meta">
               {item.timestamp.toDate().toDateString()}
             </div>
           </div>
